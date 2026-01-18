@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import VerifyEmail from "./pages/Signup/Verify";
+import AuthCallback from "./pages/Signup/AuthCallback";
+import Home from "./pages/Main/Home";
+import RequireVerified from "./pages/Signup/RequireVerified";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/verify" element={<VerifyEmail />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
+
+        <Route
+          path="/"
+          element={
+            <RequireVerified>
+              <Home />
+            </RequireVerified>
+          }
+        />
+
+        <Route path="*" element={<Navigate to="/" />} /> 
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

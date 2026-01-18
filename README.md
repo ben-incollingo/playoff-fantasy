@@ -1,10 +1,4 @@
-# Project Name
-
-A full-stack web application built with a React frontend, an Express.js backend, and Supabase for authentication and data storage.
-
-This project was built as a learning-focused full-stack application, with an emphasis on understanding how modern frontend frameworks, backend APIs, and managed cloud databases work together.
-
----
+# Playoff Fantasy
 
 ## Tech Stack
 
