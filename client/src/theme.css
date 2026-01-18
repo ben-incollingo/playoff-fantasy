@@ -1,13 +1,35 @@
 :root {
-  /* Core colors */
-  --color-bg: #f4f6f8;
-  --color-card: #ffffff;
-  --color-primary: #2563eb;
-  --color-primary-hover: #1e4ed8;
+  /* Background */
+  --bg-0: #070b12;          /* near-black */
+  --bg-1: #0b1626;          /* deep navy */
+  --bg-2: #061a16;          /* deep green */
+  --bg-noise: rgba(255, 255, 255, 0.03);
+
+  /* Card */
+  --card-bg: rgba(15, 23, 42, 0.68);   /* slate-ish with transparency */
+  --card-border: rgba(148, 163, 184, 0.18);
 
   /* Text */
-  --color-text: #111827;
-  --color-muted: #6b7280;
+  --text: #e5e7eb;
+  --muted: rgba(229, 231, 235, 0.72);
 
-  --color-border: #d1d5db;
+  /* Inputs */
+  --input-bg: rgba(2, 6, 23, 0.45);
+  --input-border: rgba(148, 163, 184, 0.22);
+  --input-border-focus: rgba(34, 197, 94, 0.55);
+
+  /* Accent (green) */
+  --accent: #22c55e;        /* green */
+  --accent-2: #16a34a;      /* darker green */
+  --accent-glow: rgba(34, 197, 94, 0.35);
+
+  /* Buttons */
+  --btn-text: #07140d;
+
+  /* Errors */
+  --error: #ef4444;
+
+  /* Radius / shadow */
+  --radius: 14px;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
 }

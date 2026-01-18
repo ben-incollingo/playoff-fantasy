@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../clients/supabaseClient";
-import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -46,7 +45,16 @@ export default function Login() {
   return (
     <div className="login-container">
       <form className="login-box" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <img
+          src="/TheFinalStretch-LongLogo.png"
+          alt="The Final Stretch"
+          style={{
+            width: "260px",
+            margin: "0 auto 18px auto",
+            display: "block",
+          }}
+        />
+
 
         <input
           type="email"
