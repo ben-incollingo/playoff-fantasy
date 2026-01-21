@@ -1,0 +1,41 @@
+.app-header {
+  height: 74px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  z-index: 50;
+}
+
+/* Left side (logo) */
+.header-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-logo {
+  height: 64px;
+  width: auto;
+  transition: filter 120ms ease;
+}
+
+.header-left:hover .header-logo {
+  filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.35));
+}
+
+/* Right side (future nav / user menu) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

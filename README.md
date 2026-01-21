@@ -51,5 +51,5 @@ npm run dev
 ```bash 
 cd client 
 npm install
-npm start
+npm run start
 ```
