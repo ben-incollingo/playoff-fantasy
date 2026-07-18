@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../clients/supabaseClient";
 import { PageHeader } from "../../components/PageHeader";
 import { LeagueCard } from "../../components/LeagueCard";
+import { useNavigate } from "react-router-dom";
 import "./Home.css"; //look here for styling
 
 export default function Home() {
+//This funciton is going to have to make a call to the database to find some basic infomration about all the leagues the user is in (dummy data below to test how things look)
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
 
   const leagues = [
@@ -51,6 +54,10 @@ export default function Home() {
     );
   };
 
+  const handleCreateClick = () => {
+    navigate("/createleague");
+  }
+
   return (
     <div>
       <PageHeader />
@@ -63,7 +70,7 @@ export default function Home() {
             <button
               type="button"
               className="create-league-btn"
-              onClick={() => alert("Coming Soon!")}
+              onClick={() => handleCreateClick()}
             >
               + Create
             </button>

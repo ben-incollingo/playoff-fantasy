@@ -1,0 +1,89 @@
+/* Two-panel layout page (left bigger than right) */
+
+.leagueDash {
+  display: flex;
+  gap: 18px;
+
+  padding: 24px;
+  padding-top: 100px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  align-items: flex-start;
+}
+
+/* Shared panel widget style */
+.leagueDash-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  padding: 18px;
+
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 0; /* helps scroll children if needed */
+}
+
+/* Left is slightly bigger */
+.leagueDash-left {
+  flex: 1.35;
+  min-width: 340px;
+}
+
+/* Right is slightly smaller */
+.leagueDash-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Panel header row */
+.leagueDash-panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leagueDash-title {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  color: rgba(229, 231, 235, 0.85);
+}
+
+.leagueDash-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  margin: 12px 0 14px;
+}
+
+.leagueDash-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto; /* lets each panel scroll internally if content is long */
+}
+
+.leagueDash-muted {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Responsive: stack panels on small screens */
+@media (max-width: 900px) {
+  .leagueDash {
+    flex-direction: column;
+  }
+
+  .leagueDash-panel {
+    height: auto;
+    min-height: 420px;
+  }
+}
