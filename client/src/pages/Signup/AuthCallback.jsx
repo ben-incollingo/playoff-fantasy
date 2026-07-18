@@ -32,6 +32,8 @@ export default function AuthCallback() {
         return;
       }
 
+
+      //ADD THIS AS AN EXPRES BACKEND CALL IN THE FUTURE
       // Create/update profile row now that they're verified
       await supabase.from("profiles").upsert({ //now that the user is verified we add the user to the profiles.public table
         id: user.id,

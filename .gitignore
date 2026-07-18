@@ -1,0 +1,9 @@
+#frontend stuff
+/client/.env
+/client/node_modules
+
+
+
+#backend stuff
+/server/.env
+/server/node_modules
