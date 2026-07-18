@@ -1,36 +1,35 @@
 import { PageHeader } from "../../components/PageHeader";
-import "./LeaguePage.css";
+
+const panelClasses =
+  "flex h-[640px] min-h-0 flex-col rounded-[14px] border border-slate-400/15 bg-slate-900/75 p-[18px] shadow-panel backdrop-blur-[10px] max-[900px]:h-auto max-[900px]:min-h-[420px]";
 
 export default function LeagueDashboard() {
-
-  //This page is going to need to call the database to get a list of all the teams in the league in order of score
-  //This page is also going to need to have a function to call the database and get everyone on the selected players team.
   return (
     <div>
       <PageHeader />
 
-      <div className="leagueDash">
-        <div className="leagueDash-panel leagueDash-left">
-          <div className="leagueDash-panelHeader">
-            <h2 className="leagueDash-title">LEADERBOARD</h2>
+      <div className="mx-auto flex max-w-[1200px] items-start gap-[18px] px-6 pb-6 pt-[100px] max-[900px]:flex-col">
+        <div className={`${panelClasses} min-w-[340px] flex-[1.35] max-[900px]:w-full max-[900px]:min-w-0`}>
+          <div className="flex items-center justify-between">
+            <h2 className="m-0 text-base tracking-[0.12em] text-gray-200/85">LEADERBOARD</h2>
           </div>
-          <hr className="leagueDash-divider" />
+          <hr className="mb-3.5 mt-3 w-full border-0 border-t border-slate-400/15" />
 
-          <div className="leagueDash-body">
-            <p className="leagueDash-muted">
+          <div className="min-h-0 flex-1 overflow-auto">
+            <p className="m-0 text-gray-200/70">
               This will be the leaderboard with each team in order of score
             </p>
           </div>
         </div>
 
-        <div className="leagueDash-panel leagueDash-right">
-          <div className="leagueDash-panelHeader">
-            <h2 className="leagueDash-title">BEN'S TEAM</h2>
+        <div className={`${panelClasses} min-w-[300px] flex-1 max-[900px]:w-full max-[900px]:min-w-0`}>
+          <div className="flex items-center justify-between">
+            <h2 className="m-0 text-base tracking-[0.12em] text-gray-200/85">BEN'S TEAM</h2>
           </div>
-          <hr className="leagueDash-divider" />
+          <hr className="mb-3.5 mt-3 w-full border-0 border-t border-slate-400/15" />
 
-          <div className="leagueDash-body">
-            <p className="leagueDash-muted">
+          <div className="min-h-0 flex-1 overflow-auto">
+            <p className="m-0 text-gray-200/70">
               This will be a list of everyone on the selected team (selected on the right...)
             </p>
           </div>

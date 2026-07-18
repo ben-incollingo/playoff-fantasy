@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../clients/supabaseClient";
+import AuthCard from "../../components/AuthCard";
 
 export default function AuthCallback() {
   const navigate = useNavigate();
@@ -46,10 +47,8 @@ export default function AuthCallback() {
   }, [navigate]);
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Finishing sign-in...</h2>
-      </div>
-    </div>
+    <AuthCard>
+      <h2>Finishing sign-in...</h2>
+    </AuthCard>
   );
 }

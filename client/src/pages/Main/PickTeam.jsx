@@ -1,9 +1,10 @@
 import { PageHeader } from "../../components/PageHeader";
 import PlayerCard from "../../components/PlayerCard";
-import "./PickTeam.css";
+
+const panelClasses =
+  "flex h-[640px] min-h-0 flex-col rounded-[14px] border border-slate-400/15 bg-slate-900/75 p-[18px] shadow-panel backdrop-blur-[10px] max-[900px]:h-auto max-[900px]:min-h-[420px]";
 
 export default function PickTeam() {
-  // Dummy test data (replace with DB later)
   const players = [
     { id: 1, name: "Patrick Mahomes", team: "KC", position: "QB", jersey: 15 },
     { id: 2, name: "Christian McCaffrey", team: "SF", position: "RB", jersey: 23 },
@@ -16,40 +17,32 @@ export default function PickTeam() {
     <div>
       <PageHeader />
 
-      <div className="leagueDash">
-        {/* LEFT PANEL */}
-        <div className="leagueDash-panel leagueDash-left">
-          <div className="leagueDash-panelHeader">
-            <h2 className="leagueDash-title">PLAYERS</h2>
+      <div className="mx-auto flex max-w-[1200px] items-start gap-[18px] px-6 pb-6 pt-[100px] max-[900px]:flex-col">
+        <div className={`${panelClasses} min-w-[340px] flex-[1.35] max-[900px]:w-full max-[900px]:min-w-0`}>
+          <div className="flex items-center justify-between">
+            <h2 className="m-0 text-base tracking-[0.12em] text-gray-200/85">PLAYERS</h2>
           </div>
-          <hr className="leagueDash-divider" />
+          <hr className="mb-3.5 mt-3 w-full border-0 border-t border-slate-400/15" />
 
-          <div className="leagueDash-body leagueDash-list">
+          <div className="flex min-h-0 flex-1 flex-col gap-2.5 overflow-y-auto">
             {players.map((player) => (
               <PlayerCard
                 key={player.id}
                 player={player}
-                onClick={() =>
-                  alert(
-                    `${player.name}\n${player.position} • ${player.team}`
-                  )
-                }
+                onClick={() => alert(`${player.name}\n${player.position} • ${player.team}`)}
               />
             ))}
           </div>
         </div>
 
-        {/* RIGHT PANEL */}
-        <div className="leagueDash-panel leagueDash-right">
-          <div className="leagueDash-panelHeader">
-            <h2 className="leagueDash-title">ROSTER</h2>
+        <div className={`${panelClasses} min-w-[300px] flex-1 max-[900px]:w-full max-[900px]:min-w-0`}>
+          <div className="flex items-center justify-between">
+            <h2 className="m-0 text-base tracking-[0.12em] text-gray-200/85">ROSTER</h2>
           </div>
-          <hr className="leagueDash-divider" />
+          <hr className="mb-3.5 mt-3 w-full border-0 border-t border-slate-400/15" />
 
-          <div className="leagueDash-body">
-            <p className="leagueDash-muted">
-              Selected players will appear here.
-            </p>
+          <div className="min-h-0 flex-1 overflow-auto">
+            <p className="m-0 text-gray-200/70">Selected players will appear here.</p>
           </div>
         </div>
       </div>

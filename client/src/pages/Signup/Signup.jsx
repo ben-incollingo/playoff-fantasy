@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../clients/supabaseClient";
+import AuthCard, { authInputClasses, primaryButtonClasses } from "../../components/AuthCard";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -41,50 +42,16 @@ export default function Signup() {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-box" onSubmit={handleSignup}>
-        <h2>Sign Up</h2>
+    <AuthCard as="form" onSubmit={handleSignup}>
+      <h2>Sign Up</h2>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          autoComplete="email"
-        />
+      <input className={authInputClasses} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
+      <input className={authInputClasses} placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      <input className={authInputClasses} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required autoComplete="new-password" />
+      <input className={authInputClasses} type="password" placeholder="Confirm Password" value={confirmedPassword} onChange={(e) => setConfirmedPassword(e.target.value)} required autoComplete="new-password" />
 
-        <input
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          autoComplete="new-password"
-        />
-
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmedPassword}
-          onChange={(e) => setConfirmedPassword(e.target.value)}
-          required
-          autoComplete="new-password"
-        />
-
-        <button type="submit" className="primary-btn">
-          Create Account
-        </button>
-
-        {msg && <p className="error-msg">{msg}</p>}
-      </form>
-    </div>
+      <button type="submit" className={primaryButtonClasses}>Create Account</button>
+      {msg && <p className="mt-4 text-center text-[0.92rem] !text-red-500">{msg}</p>}
+    </AuthCard>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../clients/supabaseClient";
+import AuthCard, { authInputClasses, primaryButtonClasses, secondaryButtonClasses } from "../../components/AuthCard";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -43,54 +44,47 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-box" onSubmit={handleSubmit}>
-        <img
-          src="/TheFinalStretch-LongLogo.png"
-          alt="The Final Stretch"
-          style={{
-            width: "260px",
-            margin: "0 auto 18px auto",
-            display: "block",
-          }}
-        />
+    <AuthCard as="form" onSubmit={handleSubmit}>
+      <img
+        src="/TheFinalStretch-LongLogo.png"
+        alt="The Final Stretch"
+        className="mx-auto mb-[18px] block w-[260px]"
+      />
 
+      <input
+        className={authInputClasses}
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        autoComplete="email"
+      />
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          autoComplete="email"
-        />
+      <input
+        className={authInputClasses}
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        autoComplete="current-password"
+      />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          autoComplete="current-password"
-        />
+      <button type="submit" className={primaryButtonClasses} disabled={loading}>
+        {loading ? "Logging in..." : "Login"}
+      </button>
 
-        <button type="submit" className="primary-btn" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
+      <button
+        type="button"
+        className={secondaryButtonClasses}
+        onClick={() => navigate("/signup")}
+        disabled={loading}
+      >
+        Sign Up
+      </button>
 
-        <button
-          type="button"
-          className="secondary-btn"
-          onClick={() => navigate("/signup")}
-          disabled={loading}
-        >
-          Sign Up
-        </button>
-
-        {msg && (
-          <p style={{ marginTop: "1rem", textAlign: "center" }}>{msg}</p>
-        )}
-      </form>
-    </div>
+      {msg && <p className="mt-4 text-center">{msg}</p>}
+    </AuthCard>
   );
 }
